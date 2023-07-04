@@ -4,8 +4,8 @@ import './styles.css'
 export function Home() {
     return (
         <section className='container'>
-            <h1>VUTTR</h1>
-            <h2>Very Useful Tools To Remember</h2>
+            <h1 className='title'>VUTTR</h1>
+            <h2 className='subtitle'>Very Useful Tools To Remember</h2>
             <div style={{ marginTop: '48px' }} />
             <ToolCard
                 title='Notion'

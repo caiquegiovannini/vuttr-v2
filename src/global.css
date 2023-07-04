@@ -17,6 +17,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
 a {
   color: #2e58f3;
 }
@@ -31,4 +41,10 @@ h2 {
 
 h3 {
   font-size: 1.65rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
 }

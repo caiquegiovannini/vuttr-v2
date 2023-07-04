@@ -33,6 +33,7 @@
 }
 
 .tool-card__footer__tag {
+    display: inline-block;
     font-size: 1.2rem;
     font-weight: 700;
     margin-right: 0.75rem;
