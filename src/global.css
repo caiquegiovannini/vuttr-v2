@@ -5,7 +5,7 @@
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans Pro', system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   color: #ffffffde;
   background-color: #242424;
@@ -17,12 +17,34 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+a {
+  color: #2e58f3;
+}
+
 h1 {
   font-size: 3.2rem;
-  line-height: 1.1;
 }
 
 h2 {
   font-size: 2rem;
-  line-height: 1.5;
+}
+
+h3 {
+  font-size: 1.65rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
 }

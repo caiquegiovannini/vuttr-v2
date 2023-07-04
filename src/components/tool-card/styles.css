@@ -1,0 +1,40 @@
+.tool-card {
+    width: 100%;
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+    background-color: white;
+    color: #242424de;
+}
+
+.tool-card__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.tool-card__header__remove-button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.tool-card__header__remove-button img {
+    width: 100%;
+}
+
+.tool-card__description {
+    font-size: 1.25rem;
+}
+
+.tool-card__footer {
+    margin-top: 1.5rem;
+}
+
+.tool-card__footer__tag {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-right: 0.75rem;
+}

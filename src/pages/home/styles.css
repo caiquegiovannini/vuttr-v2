@@ -4,7 +4,12 @@
     align-items: center;
 
     width: 100%;
-    max-width: 1120px;
+    max-width: 768px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2rem;
+}
+
+.title,
+.subtitle {
+    text-align: center;
 }
