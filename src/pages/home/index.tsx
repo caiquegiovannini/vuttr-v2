@@ -6,10 +6,11 @@ export function Home() {
         <section className='container'>
             <h1>VUTTR</h1>
             <h2>Very Useful Tools To Remember</h2>
-            <div style={{marginTop: '48px'}} />
+            <div style={{ marginTop: '48px' }} />
             <ToolCard
                 title='Notion'
-                description='lorem ipsum dolor balsda as asdjpas asḱf aof aas daoskdkoa'
+                url='notion.so'
+                description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.'
                 tags={['organization', 'planning', 'collaboration']}
             />
         </section>
