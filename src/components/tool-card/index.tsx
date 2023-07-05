@@ -1,15 +1,9 @@
+import { Tool } from '../../types'
 import TrashIcon from '../../assets/trash.svg'
 
 import './styles.css'
 
-interface ToolCardProps {
-    title: string
-    url: string
-    description: string
-    tags: string[]  // cada tag precisa ser única
-}
-
-export function ToolCard({ title, url, description, tags }: ToolCardProps) {
+export function ToolCard({ title, url, description, tags }: Tool) {
     return (
         <article className='tool-card'>
             <header className='tool-card__header'>
