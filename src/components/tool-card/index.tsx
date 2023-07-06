@@ -3,9 +3,9 @@ import TrashIcon from '../../assets/trash.svg'
 
 import './styles.css'
 
-export function ToolCard({ title, url, description, tags }: Tool) {
+export function ToolCard({ id, title, url, description, tags }: Tool) {
     return (
-        <article className='tool-card'>
+        <article className='tool-card' id={id}>
             <header className='tool-card__header'>
                 <h3>
                     <a
