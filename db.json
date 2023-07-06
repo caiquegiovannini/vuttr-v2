@@ -1,0 +1,32 @@
+{
+    "tools": [
+        {
+            "id": "1",
+            "title": "Notion",
+            "url": "notion.so",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.",
+            "tags": ["organization", "planning", "collaboration"]
+        },
+        {
+            "id": "2",
+            "title": "json-server",
+            "url": "github.com/typicode/json-server",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.",
+            "tags": ["api", "json", "schema", "node"]
+        },
+        {
+            "id": "3",
+            "title": "fastify",
+            "url": "fastify.io",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.",
+            "tags": ["web", "framework", "node", "https"]
+        },
+        {
+            "id": "4",
+            "title": "Google",
+            "url": "google.com",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.",
+            "tags": ["search", "research"]
+        }
+    ]
+}
