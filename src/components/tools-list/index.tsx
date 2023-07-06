@@ -12,6 +12,8 @@ export function ToolsList({tools}:ToolsListProps) {
         <main className='tools-list'>
             {tools.map(tool => (
                 <ToolCard
+                    key={tool.id}
+                    id={tool.id}
                     title={tool.title}
                     url={tool.url}
                     description={tool.description}
