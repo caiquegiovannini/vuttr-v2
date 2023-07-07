@@ -1,0 +1,27 @@
+.actions-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.add-button {
+    color: #fff;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+
+    border: none;
+    background-color: #2e58f3;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    opacity: .8;
+    transition: opacity 200ms ease-in;
+}
+
+.add-button:active {
+    opacity: .6;
+    transform: scale(96%);
+    transition: 100ms ease;
+}
