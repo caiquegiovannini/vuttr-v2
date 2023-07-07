@@ -2,14 +2,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 3rem;
 
     width: 100%;
     max-width: 768px;
     margin: 0 auto;
     padding: 2rem;
-}
-
-.title,
-.subtitle {
-    text-align: center;
 }

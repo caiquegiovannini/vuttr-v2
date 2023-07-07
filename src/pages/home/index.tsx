@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Tool } from '../../types'
+import { Header } from '../../components/header'
 import { ToolsList } from '../../components/tools-list'
 import { getTools } from '../../api/tools'
 
@@ -23,9 +24,7 @@ export function Home() {
 
     return (
         <section className='container'>
-            <h1 className='title'>VUTTR</h1>
-            <h2 className='subtitle'>Very Useful Tools To Remember</h2>
-            <div style={{ marginTop: '48px' }} />
+            <Header />
             <ToolsList tools={tools} />
         </section>
     )
