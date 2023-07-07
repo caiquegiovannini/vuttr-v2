@@ -1,35 +1,26 @@
+import { useEffect, useState } from 'react'
+import { Tool } from '../../types'
 import { ToolsList } from '../../components/tools-list'
+import { getTools } from '../../api/tools'
 
 import './styles.css'
 
-const tools = [
-    {
-        title: 'Notion',
-        url: 'notion.so',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.',
-        tags: ['organization', 'planning', 'collaboration'],
-    },
-    {
-        title: 'json-server',
-        url: 'github.com/typicode/json-server',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.',
-        tags: ['api', 'json', 'schema', 'node'],
-    },
-    {
-        title: 'fastify',
-        url: 'fastify.io',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.',
-        tags: ['web', 'framework', 'node', 'https'],
-    },
-    {
-        title: 'Google',
-        url: 'google.com',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed cursus elit. Sed risus ex, egestas pulvinar felis eu, dapibus congue est. Pellentesque dictum consequat ex ac tristique. Nullam quis pulvinar nulla.',
-        tags: ['search', 'research'],
-    },
-]
-
 export function Home() {
+    const [tools, setTools] = useState<Tool[]>([])
+
+    useEffect(() => {
+        async function fetchTools() {
+            try {
+                const result = await getTools()
+                setTools(result)
+            } catch (error) {
+                console.error(error) // TODO: lançar toast com erro
+            }
+        }
+
+        fetchTools()
+    }, [])
+
     return (
         <section className='container'>
             <h1 className='title'>VUTTR</h1>
