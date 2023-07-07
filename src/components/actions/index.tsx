@@ -7,6 +7,7 @@ export function Actions() {
         <aside className='actions-container'>
             <button
                 className='add-button'
+                aria-label='Add new tool button'
             >
                 <img src={Add} alt='' />
             </button>
