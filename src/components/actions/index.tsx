@@ -31,6 +31,14 @@ export function Actions() {
                             nada
                         </Textarea>
                         <Input id='tool-tags' label='Tags' placeholder='separate tags by space' />
+                        <Dialog.Close asChild>
+                            <button 
+                                type='submit' 
+                                className='modal__add-tool-button'
+                            >
+                                Add tool
+                            </button>
+                        </Dialog.Close>
                     </form>
                     <Dialog.Close asChild>
                         <button
