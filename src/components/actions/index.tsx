@@ -26,6 +26,7 @@ export function Actions() {
                     <form className='modal__form'>
                         <Input id='tool-name' label='Tool name' />
                         <Input id='tool-link' label='Tool link' prefix='https://' />
+                        <Input id='tool-tags' label='Tags' placeholder='separate tags by space' />
                     </form>
                     <Dialog.Close asChild>
                         <button
