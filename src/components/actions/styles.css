@@ -11,7 +11,7 @@
     border-radius: 50%;
 
     border: none;
-    background-color: #2e58f3;
+    background-color: var(--blue);
     cursor: pointer;
 }
 
@@ -81,4 +81,8 @@
     transform: rotate(45deg);
     filter: invert(0.8);
     width: 20px;
+}
+
+.modal__add-tool-button {
+    background-color: var(--blue);
 }
