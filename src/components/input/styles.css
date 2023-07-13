@@ -27,9 +27,13 @@
     padding: 0.5rem;
 }
 
+.input__field-container input::placeholder {
+    font-size: 1.125rem;
+}
+
 .input__prefix {
     color: #7e7e7e;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 0;
     padding: 0.5rem;
     padding-right: 0;
