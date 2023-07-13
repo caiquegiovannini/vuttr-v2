@@ -3,6 +3,7 @@ import Add from '../../assets/add.svg'
 
 import './styles.css'
 import { Input } from '../input';
+import { Textarea } from '../textarea';
 
 export function Actions() {
     return (
@@ -26,6 +27,9 @@ export function Actions() {
                     <form className='modal__form'>
                         <Input id='tool-name' label='Tool name' />
                         <Input id='tool-link' label='Tool link' prefix='https://' />
+                        <Textarea id='tool-description' label='Tool description'>
+                            nada
+                        </Textarea>
                         <Input id='tool-tags' label='Tags' placeholder='separate tags by space' />
                     </form>
                     <Dialog.Close asChild>
