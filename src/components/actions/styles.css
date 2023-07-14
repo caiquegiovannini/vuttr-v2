@@ -9,11 +9,8 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-
-    border: none;
     background-color: var(--blue);
-    cursor: pointer;
-}
+}   
 
 .add-button:hover {
     opacity: .8;

@@ -25,6 +25,11 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
 a {
   color: var(--blue);
 }
