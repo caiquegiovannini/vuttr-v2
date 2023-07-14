@@ -1,13 +1,13 @@
 .textarea {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.3rem;
     width: 100%;
     border: none;
 }
 
 .textarea__label {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: #474747;
 }
 
@@ -17,8 +17,8 @@
     outline: none;
     width: 100%;
     height: 8rem;
-    font-size: 1.25rem;
-    padding: 0.5rem;
+    font-size: 1.125rem;
+    padding: 0.5rem 0.75rem;
 
     resize: none;
 }
