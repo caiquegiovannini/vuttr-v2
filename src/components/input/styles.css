@@ -1,13 +1,13 @@
 .input {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.3rem;
     width: 100%;
     border: none;
 }
 
 .input__label {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: #474747;
 }
 
@@ -22,13 +22,17 @@
     border: none;
     outline: none;
     width: 100%;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
 
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
 }
 
 .input__field-container input::placeholder {
     font-size: 1.125rem;
+}
+
+.input__field-container input[data-prefix] {
+    padding-left: 0.2rem;
 }
 
 .input__prefix {

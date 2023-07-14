@@ -15,7 +15,7 @@ export function Input({ id, label, placeholder, prefix }: InputProps) {
                 {prefix && (
                     <span className="input__prefix">{prefix}</span>
                 )}
-                <input type="text" id={id} placeholder={placeholder} />
+                <input type="text" id={id} placeholder={placeholder} data-prefix={prefix} />
             </div>
         </fieldset>
     )
