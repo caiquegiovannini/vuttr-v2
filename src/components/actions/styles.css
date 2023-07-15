@@ -10,15 +10,15 @@
     height: 64px;
     border-radius: 50%;
     background-color: var(--blue);
-}   
+}
 
 .add-button:hover {
-    opacity: .8;
-    transition: opacity 200ms ease-in;
+    background-color: var(--blue-dark);
+    transition: background-color 200ms ease-in;
 }
 
 .add-button:active {
-    opacity: .6;
+    background-color: var(--blue-darker);
     transform: scale(96%);
     transition: 100ms ease;
 }
