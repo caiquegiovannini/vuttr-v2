@@ -65,3 +65,13 @@
     margin-top: 2rem;
     margin-left: auto;
 }
+
+.modal__add-tool-button:hover {
+    background-color: var(--blue-dark);
+    transition: background-color 200ms ease-in;
+}
+
+.modal__add-tool-button:active {
+    background-color: var(--blue-darker);
+    transition: background-color 100ms ease;
+}
