@@ -5,9 +5,10 @@ interface InputProps {
     label: string
     placeholder?: string
     prefix?: string
+    inputRef?: React.Ref<HTMLInputElement>
 }
 
-export function Input({ id, label, placeholder, prefix }: InputProps) {
+export function Input({ id, label, placeholder, prefix, inputRef }: InputProps) {
     return (
         <fieldset className='input'>
             <label htmlFor={id} className='input__label'>{label}</label>
@@ -15,7 +16,7 @@ export function Input({ id, label, placeholder, prefix }: InputProps) {
                 {prefix && (
                     <span className="input__prefix">{prefix}</span>
                 )}
-                <input type="text" id={id} placeholder={placeholder} data-prefix={prefix} />
+                <input type="text" id={id} placeholder={placeholder} data-prefix={prefix} ref={inputRef} />
             </div>
         </fieldset>
     )

@@ -5,8 +5,14 @@ import { Input } from '../../input';
 import { Textarea } from '../../textarea';
 
 import './styles.css'
+import { useRef } from 'react';
 
 export function NewToolModal() {
+    const toolNameRef = useRef<HTMLInputElement>(null)
+    const toolLinkRef = useRef<HTMLInputElement>(null)
+    const toolDescriptionRef = useRef<HTMLTextAreaElement>(null)
+    const tagsRef = useRef<HTMLInputElement>(null)
+
     return (
             <Dialog.Portal>
                 <Dialog.Overlay className='modal__overlay' />
@@ -15,12 +21,12 @@ export function NewToolModal() {
                         Add new tool
                     </Dialog.Title>
                     <form className='modal__form'>
-                        <Input id='tool-name' label='Tool name' />
-                        <Input id='tool-link' label='Tool link' prefix='https://' />
-                        <Textarea id='tool-description' label='Tool description'>
+                        <Input id='tool-name' label='Tool name' inputRef={toolNameRef} />
+                        <Input id='tool-link' label='Tool link' prefix='https://' inputRef={toolLinkRef} />
+                        <Textarea id='tool-description' label='Tool description'  textareaRef={toolDescriptionRef}>
                             nada
                         </Textarea>
-                        <Input id='tool-tags' label='Tags' placeholder='separate tags by space' />
+                        <Input id='tool-tags' label='Tags' placeholder='separate tags by space' inputRef={tagsRef} />
                         <Dialog.Close asChild>
                             <button 
                                 type='submit' 
