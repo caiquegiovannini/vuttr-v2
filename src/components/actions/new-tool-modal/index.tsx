@@ -1,14 +1,17 @@
+import { FormEvent } from 'react'
 import * as Dialog from '@radix-ui/react-dialog';
 
 import Add from '../../../assets/add.svg'
-import { Input } from '../../input';
-import { Textarea } from '../../textarea';
+import { Input } from '../../input'
+import { Textarea } from '../../textarea'
+
+import { addTool } from '../../../api/tools'
+import { useAddNewTool } from '../../../hooks/use-add-new-tool';
 
 import './styles.css'
-import { useRef } from 'react';
 
 export function NewToolModal() {
-    const toolNameRef = useRef<HTMLInputElement>(null)
+    const { sanitizeValue, formatToolLink, formatTags } = useAddNewTool(); // criar estados para os inputs para poder possuir um valor inicial base
     const toolLinkRef = useRef<HTMLInputElement>(null)
     const toolDescriptionRef = useRef<HTMLTextAreaElement>(null)
     const tagsRef = useRef<HTMLInputElement>(null)
