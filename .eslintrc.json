@@ -17,6 +17,10 @@
     "react-refresh"
   ],
   "rules": {
-    "react-refresh/only-export-components": "warn"
+    "react-refresh/only-export-components": "warn",
+    "semi": ["error", "never"],
+    "no-trailing-spaces": ["error"],
+    "quotes": ["error", "single"],
+    "indent": ["error", 4]
   }
 }
