@@ -1,0 +1,24 @@
+.actions-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.add-button {
+    color: #fff;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--blue);
+}
+
+.add-button:hover {
+    background-color: var(--blue-dark);
+    transition: background-color 200ms ease-in;
+}
+
+.add-button:active {
+    background-color: var(--blue-darker);
+    transform: scale(96%);
+    transition: 100ms ease;
+}

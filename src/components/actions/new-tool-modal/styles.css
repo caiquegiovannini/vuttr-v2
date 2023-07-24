@@ -1,0 +1,77 @@
+.modal__overlay {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    inset: 0;
+}
+
+.modal {
+    background-color: #fff;
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+
+    padding: 1.875rem;
+    width: 100%;
+    max-width: 570px;
+}
+
+.modal__title {
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 24px;
+}
+
+.modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal__close-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.modal__close-button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal__close-button img {
+    transform: rotate(45deg);
+    filter: invert(0.8);
+    width: 20px;
+}
+
+.modal__add-tool-button {
+    background-color: var(--blue);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: fit-content;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+    margin-left: auto;
+}
+
+.modal__add-tool-button:hover {
+    background-color: var(--blue-dark);
+    transition: background-color 200ms ease-in;
+}
+
+.modal__add-tool-button:active {
+    background-color: var(--blue-darker);
+    transition: background-color 100ms ease;
+}

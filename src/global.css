@@ -5,6 +5,10 @@
 }
 
 :root {
+  --blue: #2e58f3;
+  --blue-dark: #2c4eca;
+  --blue-darker: #2a43a0;
+
   font-family: 'Source Sans Pro', system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   color: #ffffffde;
@@ -17,18 +21,20 @@
   -webkit-text-size-adjust: 100%;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
 a {
-  color: #2e58f3;
+  color: var(--blue);
 }
 
 h1 {

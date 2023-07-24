@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Tool } from '../../types'
 import { Header } from '../../components/header'
+import { Actions } from '../../components/actions'
 import { ToolsList } from '../../components/tools-list'
 import { getTools } from '../../api/tools'
 
@@ -23,8 +24,9 @@ export function Home() {
     }, [])
 
     return (
-        <section className='container'>
+        <section className='home-container'>
             <Header />
+            <Actions />
             <ToolsList tools={tools} />
         </section>
     )

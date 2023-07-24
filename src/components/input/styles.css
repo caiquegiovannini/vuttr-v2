@@ -1,0 +1,44 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 100%;
+    border: none;
+}
+
+.input__label {
+    font-size: 1rem;
+    color: #474747;
+}
+
+.input__field-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.input__field-container input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1.125rem;
+
+    padding: 0.5rem 0.75rem;
+}
+
+.input__field-container input::placeholder {
+    font-size: 1.125rem;
+}
+
+.input__field-container input[data-prefix] {
+    padding-left: 0.2rem;
+}
+
+.input__prefix {
+    color: #7e7e7e;
+    font-size: 1.125rem;
+    line-height: 0;
+    padding: 0.5rem;
+    padding-right: 0;
+}
