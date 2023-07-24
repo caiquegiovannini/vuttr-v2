@@ -1,14 +1,14 @@
+import { InputHTMLAttributes } from 'react'
 import './styles.css'
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     id: string
     label: string
     placeholder?: string
     prefix?: string
-    inputRef?: React.Ref<HTMLInputElement>
 }
 
-export function Input({ id, label, placeholder, prefix, inputRef }: InputProps) {
+export function Input({ id, label, placeholder, prefix, ...rest }: InputProps) {
     return (
         <fieldset className='input'>
             <label htmlFor={id} className='input__label'>{label}</label>
@@ -16,7 +16,7 @@ export function Input({ id, label, placeholder, prefix, inputRef }: InputProps) 
                 {prefix && (
                     <span className="input__prefix">{prefix}</span>
                 )}
-                <input type="text" id={id} placeholder={placeholder} data-prefix={prefix} ref={inputRef} />
+                <input type="text" id={id} placeholder={placeholder} data-prefix={prefix} {...rest} />
             </div>
         </fieldset>
     )
