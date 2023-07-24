@@ -12,7 +12,7 @@ import './styles.css'
 import { ToolPayload } from '../../../api/types'
 
 export function NewToolModal() {
-    const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool() // criar estados para os inputs para poder possuir um valor inicial base
+    const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
 
     const [toolTitle,setToolTitle] = useState('')
     const [toolUrl,setToolUrl] = useState('')
