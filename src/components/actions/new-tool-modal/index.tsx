@@ -1,20 +1,40 @@
-import { FormEvent } from 'react'
-import * as Dialog from '@radix-ui/react-dialog';
+import { FormEvent, useState } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../../assets/add.svg'
 import { Input } from '../../input'
 import { Textarea } from '../../textarea'
 
 import { addTool } from '../../../api/tools'
-import { useAddNewTool } from '../../../hooks/use-add-new-tool';
+import { useAddNewTool } from '../../../hooks/use-add-new-tool'
 
 import './styles.css'
+import { ToolPayload } from '../../../api/types'
 
 export function NewToolModal() {
-    const { sanitizeValue, formatToolLink, formatTags } = useAddNewTool(); // criar estados para os inputs para poder possuir um valor inicial base
-    const toolLinkRef = useRef<HTMLInputElement>(null)
-    const toolDescriptionRef = useRef<HTMLTextAreaElement>(null)
-    const tagsRef = useRef<HTMLInputElement>(null)
+    const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool() // criar estados para os inputs para poder possuir um valor inicial base
+
+    const [toolTitle,setToolTitle] = useState('')
+    const [toolUrl,setToolUrl] = useState('')
+    const [toolDescription, setToolDescription] = useState('')
+    const [toolTags, setToolTags] = useState('')
+
+    async function handleSubmit(e: FormEvent) {
+        e.preventDefault()
+
+        const payload: ToolPayload = {
+            title: sanitizeValue(toolTitle),
+            url: formatToolUrl(toolUrl),
+            description: sanitizeValue(toolDescription),
+            tags: formatTags(toolTags),
+        }
+
+        try {
+            await addTool(payload)
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
     return (
         <Dialog.Portal>
@@ -23,11 +43,31 @@ export function NewToolModal() {
                 <Dialog.Title className='modal__title'>
                     Add new tool
                 </Dialog.Title>
-                <form className='modal__form' onSubmit={onSubmit}>
-                    <Input id='tool-name' label='Tool name' inputRef={toolNameRef} />
-                    <Input id='tool-link' label='Tool link' prefix='https://' inputRef={toolLinkRef} />
-                    <Textarea id='tool-description' label='Tool description' textareaRef={toolDescriptionRef} />
-                    <Input id='tool-tags' label='Tags' placeholder='separate tags by space' inputRef={tagsRef} />
+                <form className='modal__form' onSubmit={handleSubmit}>
+                    <Input
+                        id='tool-title'
+                        label='Tool title'
+                        value={toolTitle}
+                        onChange={(e) => setToolTitle(e.target.value)}
+                    />
+                    <Input
+                        id='tool-url'
+                        label='Tool url' prefix='https://'
+                        value={toolUrl}
+                        onChange={(e) => setToolUrl(e.target.value)}
+                    />
+                    <Textarea
+                        id='tool-description'
+                        label='Tool description'
+                        value={toolDescription}
+                        onChange={(e) => setToolDescription(e.target.value)}
+                    />
+                    <Input
+                        id='tool-tags'
+                        label='Tags' placeholder='separate tags by space'
+                        value={toolTags}
+                        onChange={(e) => setToolTags(e.target.value)}
+                    />
                     <button
                         type='submit'
                         className='modal__add-tool-button'
