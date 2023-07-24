@@ -1,6 +1,6 @@
 export function useAddNewTool() {
-    function sanitizeValue(title: string) {
-        return title.trim()
+    function sanitizeValue(value: string) {
+        return value.trim()
     }
 
     function formatToolUrl(url: string) {
