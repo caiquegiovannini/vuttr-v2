@@ -7,7 +7,11 @@ export function useAddNewTool() {
         return `https://${url.trim()}`
     }
 
-    function formatTags() { return }
+    function formatTags(tags: string) {
+        const tagsArray = sanitizeValue(tags).split(' ')
+
+        return tagsArray
+    }
 
     return {
         sanitizeValue,
