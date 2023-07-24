@@ -2,14 +2,14 @@ import { FormEvent, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../../assets/add.svg'
+import { addTool } from '../../../api/tools'
+import { ToolPayload } from '../../../api/types'
+import { useAddNewTool } from '../../../hooks/use-add-new-tool'
+
 import { Input } from '../../input'
 import { Textarea } from '../../textarea'
 
-import { addTool } from '../../../api/tools'
-import { useAddNewTool } from '../../../hooks/use-add-new-tool'
-
 import './styles.css'
-import { ToolPayload } from '../../../api/types'
 
 export function NewToolModal() {
     const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
