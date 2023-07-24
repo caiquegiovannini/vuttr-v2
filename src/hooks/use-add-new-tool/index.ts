@@ -3,15 +3,15 @@ export function useAddNewTool() {
         return title.trim()
     }
 
-    function formatToolLink(link: string) {
-        return `https://${link.trim()}`
+    function formatToolUrl(url: string) {
+        return `https://${url.trim()}`
     }
 
     function formatTags() { return }
 
     return {
         sanitizeValue,
-        formatToolLink,
+        formatToolUrl,
         formatTags,
     }
 }
