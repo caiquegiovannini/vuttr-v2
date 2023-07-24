@@ -9,7 +9,7 @@ export function ToolCard({ id, title, url, description, tags }: Tool) {
             <header className='tool-card__header'>
                 <h3>
                     <a
-                        href={`https://${url}`}
+                        href={url}
                         target='_blank'
                     >{title}</a>
                 </h3>
