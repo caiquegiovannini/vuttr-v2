@@ -11,7 +11,11 @@ import { Textarea } from '../../textarea'
 
 import './styles.css'
 
-export function NewToolModal() {
+interface NewToolModalProps {
+    toggleOpenModal: () => void
+}
+
+export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
     const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
 
     const [toolTitle,setToolTitle] = useState('')
@@ -39,7 +43,7 @@ export function NewToolModal() {
             setIsLoading(false)
         }
 
-        // TODO: precisa fechar quando finalizar adição de novo tool
+        toggleOpenModal()
     }
 
     return (
