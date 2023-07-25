@@ -1,13 +1,12 @@
-import { Tool } from '../../types'
+import { useContext } from 'react'
+import { ToolsContext } from '../../contexts/tools-context'
 import { ToolCard } from '../tool-card'
 
 import './styles.css'
 
-interface ToolsListProps {
-    tools: Tool[]
-}
+export function ToolsList() {
+    const { tools } = useContext(ToolsContext)
 
-export function ToolsList({tools}:ToolsListProps) {
     return (
         <main className='tools-list'>
             {tools.map(tool => (

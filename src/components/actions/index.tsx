@@ -1,13 +1,20 @@
-import * as Dialog from '@radix-ui/react-dialog';
+import { useState } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../assets/add.svg'
-import { NewToolModal } from './new-tool-modal';
+import { NewToolModal } from './new-tool-modal'
 
 import './styles.css'
 
 export function Actions() {
+    const [isOpen, setIsOpen] = useState(false)
+
+    function toggleOpenModal() {
+        setIsOpen(currentState => !currentState)
+    }
+
     return (
-        <Dialog.Root>
+        <Dialog.Root open={isOpen} onOpenChange={toggleOpenModal}>
             <aside className='actions-container'>
                 <Dialog.Trigger asChild>
                     <button
@@ -18,7 +25,7 @@ export function Actions() {
                     </button>
                 </Dialog.Trigger>
             </aside>
-            <NewToolModal />
+            <NewToolModal toggleOpenModal={toggleOpenModal} />
         </Dialog.Root>
     )
 }

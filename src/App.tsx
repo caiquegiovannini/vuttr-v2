@@ -1,7 +1,10 @@
-import { Home } from "./pages/home";
+import { ToolsProvider } from './contexts/tools-context'
+import { Home } from './pages/home'
 
 export function App() {
-  return (
-    <Home />
-  )
+    return (
+        <ToolsProvider>
+            <Home />
+        </ToolsProvider>
+    )
 }

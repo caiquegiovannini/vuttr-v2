@@ -1,33 +1,23 @@
-import { useEffect, useState } from 'react'
-import { Tool } from '../../types'
+import { useContext, useEffect } from 'react'
+import { ToolsContext } from '../../contexts/tools-context'
 import { Header } from '../../components/header'
 import { Actions } from '../../components/actions'
 import { ToolsList } from '../../components/tools-list'
-import { getTools } from '../../api/tools'
 
 import './styles.css'
 
 export function Home() {
-    const [tools, setTools] = useState<Tool[]>([])
+    const { fetchTools } = useContext(ToolsContext)
 
     useEffect(() => {
-        async function fetchTools() {
-            try {
-                const result = await getTools()
-                setTools(result)
-            } catch (error) {
-                console.error(error) // TODO: lançar toast com erro
-            }
-        }
-
         fetchTools()
-    }, [])
+    }, [fetchTools])
 
     return (
         <section className='home-container'>
             <Header />
             <Actions />
-            <ToolsList tools={tools} />
+            <ToolsList />
         </section>
     )
 }

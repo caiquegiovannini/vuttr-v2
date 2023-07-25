@@ -75,3 +75,8 @@
     background-color: var(--blue-darker);
     transition: background-color 100ms ease;
 }
+
+.modal__add-tool-button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}

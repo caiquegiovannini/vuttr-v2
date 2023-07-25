@@ -1,9 +1,9 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../../assets/add.svg'
-import { addTool } from '../../../api/tools'
 import { ToolPayload } from '../../../api/types'
+import { ToolsContext } from '../../../contexts/tools-context'
 import { useAddNewTool } from '../../../hooks/use-add-new-tool'
 
 import { Input } from '../../input'
@@ -11,13 +11,20 @@ import { Textarea } from '../../textarea'
 
 import './styles.css'
 
-export function NewToolModal() {
+interface NewToolModalProps {
+    toggleOpenModal: () => void
+}
+
+export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
+    const { addNewTool, isLoading } = useContext(ToolsContext)
+
     const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
 
     const [toolTitle,setToolTitle] = useState('')
     const [toolUrl,setToolUrl] = useState('')
     const [toolDescription, setToolDescription] = useState('')
     const [toolTags, setToolTags] = useState('')
+
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
@@ -29,11 +36,8 @@ export function NewToolModal() {
             tags: formatTags(toolTags),
         }
 
-        try {
-            await addTool(payload)
-        } catch (error) {
-            console.error(error)
-        }
+        await addNewTool(payload)
+        toggleOpenModal()
     }
 
     return (
@@ -71,6 +75,7 @@ export function NewToolModal() {
                     <button
                         type='submit'
                         className='modal__add-tool-button'
+                        disabled={isLoading}
                     >
                         Add tool
                     </button>
