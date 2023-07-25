@@ -2,15 +2,14 @@ import { FormEvent, useContext, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../../assets/add.svg'
-import { addTool } from '../../../api/tools'
 import { ToolPayload } from '../../../api/types'
+import { ToolsContext } from '../../../contexts/tools-context'
 import { useAddNewTool } from '../../../hooks/use-add-new-tool'
 
 import { Input } from '../../input'
 import { Textarea } from '../../textarea'
 
 import './styles.css'
-import { ToolsContext } from '../../../contexts/tools-context'
 
 interface NewToolModalProps {
     toggleOpenModal: () => void
