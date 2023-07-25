@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../../assets/add.svg'
@@ -10,19 +10,22 @@ import { Input } from '../../input'
 import { Textarea } from '../../textarea'
 
 import './styles.css'
+import { ToolsContext } from '../../../contexts/tools-context'
 
 interface NewToolModalProps {
     toggleOpenModal: () => void
 }
 
 export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
+    const { addNewTool, isLoading } = useContext(ToolsContext)
+
     const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
 
     const [toolTitle,setToolTitle] = useState('')
     const [toolUrl,setToolUrl] = useState('')
     const [toolDescription, setToolDescription] = useState('')
     const [toolTags, setToolTags] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
+
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
@@ -34,15 +37,7 @@ export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
             tags: formatTags(toolTags),
         }
 
-        try {
-            setIsLoading(true)
-            await addTool(payload)
-        } catch (error) {
-            console.error(error)
-        } finally {
-            setIsLoading(false)
-        }
-
+        await addNewTool(payload)
         toggleOpenModal()
     }
 
