@@ -18,6 +18,7 @@ export function NewToolModal() {
     const [toolUrl,setToolUrl] = useState('')
     const [toolDescription, setToolDescription] = useState('')
     const [toolTags, setToolTags] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
@@ -30,10 +31,15 @@ export function NewToolModal() {
         }
 
         try {
+            setIsLoading(true)
             await addTool(payload)
         } catch (error) {
             console.error(error)
+        } finally {
+            setIsLoading(false)
         }
+
+        // TODO: precisa fechar quando finalizar adição de novo tool
     }
 
     return (
@@ -71,6 +77,7 @@ export function NewToolModal() {
                     <button
                         type='submit'
                         className='modal__add-tool-button'
+                        disabled={isLoading}
                     >
                         Add tool
                     </button>
