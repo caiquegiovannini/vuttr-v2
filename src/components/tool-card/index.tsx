@@ -2,8 +2,11 @@ import { Tool } from '../../types'
 import TrashIcon from '../../assets/trash.svg'
 
 import './styles.css'
+import { useContext } from 'react'
+import { ToolsContext } from '../../contexts/tools-context'
 
 export function ToolCard({ id, title, url, description, tags }: Tool) {
+    const { handleRemoveTool } = useContext(ToolsContext)
     return (
         <article className='tool-card' id={id}>
             <header className='tool-card__header'>
@@ -13,7 +16,7 @@ export function ToolCard({ id, title, url, description, tags }: Tool) {
                         target='_blank'
                     >{title}</a>
                 </h3>
-                <button className='tool-card__header__remove-button'>
+                <button className='tool-card__header__remove-button' onClick={() => handleRemoveTool(id)}>
                     <img src={TrashIcon} alt="trash can" />
                 </button>
             </header>
