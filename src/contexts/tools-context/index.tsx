@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useCallback, useState } from 'react'
 import { Tool } from '../../types'
-import { addTool, getTools } from '../../api/tools'
+import { addTool, getTools, removeTool } from '../../api/tools'
 import { ToolPayload } from '../../api/types'
 
 interface ToolsContextType {
@@ -8,6 +8,7 @@ interface ToolsContextType {
     isLoading: boolean
     fetchTools: () => Promise<void>
     addNewTool: (payload: ToolPayload) => Promise<void>
+    handleRemoveTool: (id: string) => Promise<void>
 }
 
 interface ToolsProviderProps {
@@ -42,12 +43,22 @@ export function ToolsProvider({children}: ToolsProviderProps) {
 
     }, [])
 
+    const handleRemoveTool = useCallback(async (id: string) => {
+        try {
+            await removeTool(id)
+            setTools(currentTools => currentTools.filter(tool => tool.id !== id))
+        } catch (error) {
+            console.error(error)
+        }
+    }, [])
+
     return (
         <ToolsContext.Provider value={{
             tools,
             isLoading,
             fetchTools,
             addNewTool,
+            handleRemoveTool,
         }}>
             {children}
         </ToolsContext.Provider>
