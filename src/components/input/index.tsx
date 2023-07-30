@@ -3,7 +3,7 @@ import './styles.css'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     id: string
-    label: string
+    label?: string
     placeholder?: string
     prefix?: string
 }
@@ -11,7 +11,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export function Input({ id, label, placeholder, prefix, ...rest }: InputProps) {
     return (
         <fieldset className='input'>
-            <label htmlFor={id} className='input__label'>{label}</label>
+            {label && (<label htmlFor={id} className='input__label'>{label}</label>)}
             <div className="input__field-container">
                 {prefix && (
                     <span className="input__prefix">{prefix}</span>
