@@ -4,4 +4,4 @@ import { ToolPayload } from './types'
 
 export const getTools = async (): Promise<Tool[]> => (await api.get('tools')).data
 export const addTool = async (payload: ToolPayload): Promise<{data: Tool}> => await api.post('tools', payload)
-export const removeTool = async (id: string): Promise<void> => await api.delete(`tools/${id}` )
+export const removeTool = async (id: string): Promise<void> => await api.delete(`tools/${id}`)
