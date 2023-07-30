@@ -4,11 +4,13 @@ import { addTool, getTools, removeTool } from '../../api/tools'
 import { ToolPayload } from '../../api/types'
 
 interface ToolsContextType {
-    tools: Tool[]
+    toolsToRender: Tool[]
+    filter: string
     isLoading: boolean
     fetchTools: () => Promise<void>
     addNewTool: (payload: ToolPayload) => Promise<void>
     handleRemoveTool: (id: string) => Promise<void>
+    handleChangeFilter: (filterTerm: string) => void
 }
 
 interface ToolsProviderProps {
@@ -20,6 +22,9 @@ export const ToolsContext = createContext({} as ToolsContextType)
 export function ToolsProvider({children}: ToolsProviderProps) {
     const [tools, setTools] = useState<Tool[]>([])
     const [isLoading, setIsLoading] = useState(false)
+    const [filter, setFilter] = useState('')
+
+    const toolsToRender = filter ? tools.filter(tool => tool.title.toLowerCase().includes(filter)) : tools
 
     const fetchTools = useCallback(async () => {
         try {
@@ -52,13 +57,20 @@ export function ToolsProvider({children}: ToolsProviderProps) {
         }
     }, [])
 
+    const handleChangeFilter = useCallback((filterTerm: string) => {
+        const filterTermFormatted = filterTerm.trim().toLocaleLowerCase()
+        setFilter(filterTermFormatted)
+    }, [])
+
     return (
         <ToolsContext.Provider value={{
-            tools,
+            toolsToRender,
+            filter,
             isLoading,
             fetchTools,
             addNewTool,
             handleRemoveTool,
+            handleChangeFilter,
         }}>
             {children}
         </ToolsContext.Provider>

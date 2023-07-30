@@ -5,11 +5,11 @@ import { ToolCard } from '../tool-card'
 import './styles.css'
 
 export function ToolsList() {
-    const { tools } = useContext(ToolsContext)
+    const { toolsToRender } = useContext(ToolsContext)
 
     return (
         <main className='tools-list'>
-            {tools.map(tool => (
+            {toolsToRender.map(tool => (
                 <ToolCard
                     key={tool.id}
                     id={tool.id}
