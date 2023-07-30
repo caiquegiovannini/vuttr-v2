@@ -25,7 +25,6 @@ export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
     const [toolDescription, setToolDescription] = useState('')
     const [toolTags, setToolTags] = useState('')
 
-
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
 
@@ -38,6 +37,14 @@ export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
 
         await addNewTool(payload)
         toggleOpenModal()
+        cleanFields()
+    }
+
+    function cleanFields() {
+        setToolTitle('')
+        setToolUrl('')
+        setToolDescription('')
+        setToolTags('')
     }
 
     return (
