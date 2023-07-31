@@ -1,0 +1,10 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "moduleNameMapper": {
+    "\\.css$": "<rootDir>/emptyModule.js"
+  },
+  "setupFilesAfterEnv": [
+    "<rootDir>/setup-jest.ts"
+  ]
+}
