@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "concurrently \"vite\" \"npm run server\"",
     "server": "json-server --watch db.json --port 3004",
+    "test": "jest",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
