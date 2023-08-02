@@ -4,21 +4,21 @@ import { Input } from './'
 
 describe('Input', () => {
     it('should render with label', () => {
-        render(<Input id='input-test' label='Testee' />)
+        render(<Input id='input-test' label='Teste' />)
 
         expect(screen.getByLabelText('Testee')).toBeInTheDocument()
     })
 
     it.only('should render prefix', async () => {
-        render(<Input id='input-test' prefix='senta' label='Input top' />)
+        render(<Input id='input-test' prefix='https://' label='Input top' />)
 
         const input = screen.getByLabelText('Input top')
         expect(input).toBeInTheDocument()
         expect(screen.getByText('Input top')).toBeInTheDocument()
 
-        await userEvent.type(input, 'na cadeira')
+        await userEvent.type(input, 'google.com')
 
-        expect(input).toHaveDisplayValue('na cadeira')
-        expect(screen.getByText('na cadeira')).toBeInTheDocument()
+        expect(screen.getByText('https://')).toBeInTheDocument()
+        expect(input).toHaveDisplayValue('google.com')
     })
 })
