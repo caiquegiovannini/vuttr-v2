@@ -6,10 +6,10 @@ describe('Input', () => {
     it('should render with label', () => {
         render(<Input id='input-test' label='Teste' />)
 
-        expect(screen.getByLabelText('Testee')).toBeInTheDocument()
+        expect(screen.getByLabelText('Teste')).toBeInTheDocument()
     })
 
-    it.only('should render prefix', async () => {
+    it('should render prefix', async () => {
         render(<Input id='input-test' prefix='https://' label='Input top' />)
 
         const input = screen.getByLabelText('Input top')
