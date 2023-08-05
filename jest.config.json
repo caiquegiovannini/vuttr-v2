@@ -4,6 +4,10 @@
   "moduleNameMapper": {
     "\\.css$": "<rootDir>/emptyModule.js"
   },
+  "transform": {
+    "\\.svg$":
+      "<rootDir>/fileTransformer.js"
+  },
   "setupFilesAfterEnv": [
     "<rootDir>/setup-jest.ts"
   ]
