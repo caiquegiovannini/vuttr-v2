@@ -10,5 +10,10 @@
   },
   "setupFilesAfterEnv": [
     "<rootDir>/setup-jest.ts"
+  ],
+  "coveragePathIgnorePatterns": [
+    "App.tsx",
+    "main.tsx",
+    "header"
   ]
 }
