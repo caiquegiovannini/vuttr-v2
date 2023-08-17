@@ -8,9 +8,9 @@ import { ToolsContext } from '../../contexts/tools-context'
 export function ToolCard({ id, title, url, description, tags }: Tool) {
     const { handleRemoveTool } = useContext(ToolsContext)
     return (
-        <article className='tool-card' id={id}>
+        <article className='tool-card' id={id} aria-labelledby={`tool-card-title-${id}`}>
             <header className='tool-card__header'>
-                <h3>
+                <h3 id={`tool-card-title-${id}`}>
                     <a
                         href={url}
                         target='_blank'
