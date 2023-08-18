@@ -1,9 +1,8 @@
-import { Tool } from '../../types'
-import TrashIcon from '../../assets/trash.svg'
-
-import './styles.css'
 import { useContext } from 'react'
-import { ToolsContext } from '../../contexts/tools-context'
+import TrashIcon from '../../../../assets/trash.svg'
+import { Tool } from '../../../../types'
+import { ToolsContext } from '../../../../contexts/tools-context'
+import './styles.css'
 
 export function ToolCard({ id, title, url, description, tags }: Tool) {
     const { handleRemoveTool } = useContext(ToolsContext)

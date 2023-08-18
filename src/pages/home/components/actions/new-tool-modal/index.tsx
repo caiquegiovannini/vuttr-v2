@@ -1,14 +1,12 @@
 import { FormEvent, useContext, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
-import Add from '../../../assets/add.svg'
-import { ToolPayload } from '../../../api/types'
-import { ToolsContext } from '../../../contexts/tools-context'
-import { useAddNewTool } from '../../../hooks/use-add-new-tool'
-
-import { Input } from '../../input'
-import { Textarea } from '../../textarea'
-
+import Add from '../../../../../assets/add.svg'
+import { ToolPayload } from '../../../../../api/types'
+import { ToolsContext } from '../../../../../contexts/tools-context'
+import { useAddNewTool } from '../../../../../hooks/use-add-new-tool'
+import { Input } from '../../../../../components/input'
+import { Textarea } from '../../../../../components/textarea'
 import './styles.css'
 
 interface NewToolModalProps {
@@ -20,8 +18,8 @@ export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
 
     const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
 
-    const [toolTitle,setToolTitle] = useState('')
-    const [toolUrl,setToolUrl] = useState('')
+    const [toolTitle, setToolTitle] = useState('')
+    const [toolUrl, setToolUrl] = useState('')
     const [toolDescription, setToolDescription] = useState('')
     const [toolTags, setToolTags] = useState('')
 

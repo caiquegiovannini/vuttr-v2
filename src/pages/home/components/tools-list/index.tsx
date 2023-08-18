@@ -1,7 +1,6 @@
 import { useContext, useEffect } from 'react'
-import { ToolsContext } from '../../contexts/tools-context'
+import { ToolsContext } from '../../../../contexts/tools-context'
 import { ToolCard } from '../tool-card'
-
 import './styles.css'
 
 export function ToolsList() {

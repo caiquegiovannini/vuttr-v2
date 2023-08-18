@@ -1,11 +1,10 @@
 import { useContext, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
-import Add from '../../assets/add.svg'
-import { ToolsContext } from '../../contexts/tools-context'
+import Add from '../../../../assets/add.svg'
+import { ToolsContext } from '../../../../contexts/tools-context'
+import { Input } from '../../../../components/input'
 import { NewToolModal } from './new-tool-modal'
-
-import { Input } from '../input'
 import './styles.css'
 
 export function Actions() {

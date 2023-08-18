@@ -1,8 +1,8 @@
 import { render, screen, waitForElementToBeRemoved, within } from '@testing-library/react'
 import MockAdapter from 'axios-mock-adapter'
 import userEvent from '@testing-library/user-event'
-import { api } from '../../services/client'
-import { ToolsProvider } from '../../contexts/tools-context'
+import { api } from '../../../../services/client'
+import { ToolsProvider } from '../../../../contexts/tools-context'
 import { ToolsList } from './'
 
 const toolsMock = [

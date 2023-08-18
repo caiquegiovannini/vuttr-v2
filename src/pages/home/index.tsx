@@ -1,7 +1,6 @@
 import { Header } from '../../components/header'
-import { Actions } from '../../components/actions'
-import { ToolsList } from '../../components/tools-list'
-
+import { Actions } from './components/actions'
+import { ToolsList } from './components/tools-list'
 import './styles.css'
 
 export function Home() {
