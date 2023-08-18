@@ -12,7 +12,7 @@ export function ToolsList() {
     }, [fetchTools])
 
     return (
-        <main className='tools-list'>
+        <main className='tools-list' aria-label='list of tools'>
             {toolsToRender.length > 0 ? (
                 toolsToRender.map(tool => (
                     <ToolCard

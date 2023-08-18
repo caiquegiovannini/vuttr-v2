@@ -16,7 +16,7 @@ export function ToolCard({ id, title, url, description, tags }: Tool) {
                         target='_blank'
                     >{title}</a>
                 </h3>
-                <button className='tool-card__header__remove-button' onClick={() => handleRemoveTool(id)}>
+                <button className='tool-card__header__remove-button' onClick={() => handleRemoveTool(id)} aria-label="Remove tool">
                     <img src={TrashIcon} alt="trash can" />
                 </button>
             </header>
