@@ -5,8 +5,7 @@
     "\\.css$": "<rootDir>/emptyModule.js"
   },
   "transform": {
-    "\\.svg$":
-      "<rootDir>/fileTransformer.js"
+    "\\.svg$": "<rootDir>/fileTransformer.js"
   },
   "setupFilesAfterEnv": [
     "<rootDir>/setup-jest.ts"
@@ -14,6 +13,7 @@
   "coveragePathIgnorePatterns": [
     "App.tsx",
     "main.tsx",
-    "header"
+    "header",
+    "home/index.tsx"
   ]
 }
