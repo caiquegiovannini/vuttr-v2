@@ -16,26 +16,31 @@ export function Actions() {
     }
 
     return (
-        <Dialog.Root open={isOpen} onOpenChange={toggleOpenModal}>
-            <aside className='actions-container'>
-                <div className='actions-container__filter'>
-                    <Input
-                        id='filter'
-                        placeholder='filter by title'
-                        aria-label='tool filter'
-                        onChange={e => handleChangeFilter(e.target.value)}
-                    />
-                </div>
+        <aside className='actions-container'>
+            <div className='actions-container__filter'>
+                <Input
+                    id='filter'
+                    placeholder='filter by title'
+                    aria-label='tool filter'
+                    onChange={e => handleChangeFilter(e.target.value)}
+                />
+            </div>
+            <Dialog.Root open={isOpen} onOpenChange={toggleOpenModal}>
                 <Dialog.Trigger asChild>
                     <button
                         className='add-button'
-                        aria-label='Add new tool button'
+                        aria-label='Add new tool'
                     >
                         <img src={Add} alt='' />
                     </button>
                 </Dialog.Trigger>
-            </aside>
-            <NewToolModal toggleOpenModal={toggleOpenModal} />
-        </Dialog.Root>
+                <Dialog.Portal>
+                    <Dialog.Overlay className='modal__overlay' />
+                    <Dialog.Content className='modal'>
+                        <NewToolModal toggleOpenModal={toggleOpenModal} />
+                    </Dialog.Content>
+                </Dialog.Portal>
+            </Dialog.Root>
+        </aside>
     )
 }
