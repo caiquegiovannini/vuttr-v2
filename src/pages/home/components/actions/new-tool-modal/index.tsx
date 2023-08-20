@@ -11,9 +11,10 @@ import './styles.css'
 
 interface NewToolModalProps {
     toggleOpenModal: () => void
+    isOpen: boolean
 }
 
-export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
+export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
     const { addNewTool, isLoading } = useContext(ToolsContext)
 
     const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
@@ -46,51 +47,56 @@ export function NewToolModal({ toggleOpenModal }: NewToolModalProps) {
     }
 
     return (
-        <>
-            <Dialog.Title className='modal__title'>
-                    Add new tool
-            </Dialog.Title>
-            <form className='modal__form' onSubmit={handleSubmit}>
-                <Input
-                    id='tool-title'
-                    label='Tool title'
-                    value={toolTitle}
-                    onChange={(e) => setToolTitle(e.target.value)}
-                />
-                <Input
-                    id='tool-url'
-                    label='Tool url' prefix='https://'
-                    value={toolUrl}
-                    onChange={(e) => setToolUrl(e.target.value)}
-                />
-                <Textarea
-                    id='tool-description'
-                    label='Tool description'
-                    value={toolDescription}
-                    onChange={(e) => setToolDescription(e.target.value)}
-                />
-                <Input
-                    id='tool-tags'
-                    label='Tags' placeholder='separate tags by space'
-                    value={toolTags}
-                    onChange={(e) => setToolTags(e.target.value)}
-                />
-                <button
-                    type='submit'
-                    className='modal__add-tool-button'
-                    disabled={isLoading}
-                >
-                        Add tool
-                </button>
-            </form>
-            <Dialog.Close asChild>
-                <button
-                    className='modal__close-button'
-                    aria-label='Close button'
-                >
-                    <img src={Add} alt='' />
-                </button>
-            </Dialog.Close>
-        </>
+        <Dialog.Root open={isOpen} onOpenChange={toggleOpenModal}>
+            <Dialog.Portal>
+                <Dialog.Overlay className='modal__overlay' />
+                <Dialog.Content className='modal'>
+                    <Dialog.Title className='modal__title'>
+                        Add new tool
+                    </Dialog.Title>
+                    <form className='modal__form' onSubmit={handleSubmit}>
+                        <Input
+                            id='tool-title'
+                            label='Tool title'
+                            value={toolTitle}
+                            onChange={(e) => setToolTitle(e.target.value)}
+                        />
+                        <Input
+                            id='tool-url'
+                            label='Tool url' prefix='https://'
+                            value={toolUrl}
+                            onChange={(e) => setToolUrl(e.target.value)}
+                        />
+                        <Textarea
+                            id='tool-description'
+                            label='Tool description'
+                            value={toolDescription}
+                            onChange={(e) => setToolDescription(e.target.value)}
+                        />
+                        <Input
+                            id='tool-tags'
+                            label='Tags' placeholder='separate tags by space'
+                            value={toolTags}
+                            onChange={(e) => setToolTags(e.target.value)}
+                        />
+                        <button
+                            type='submit'
+                            className='modal__add-tool-button'
+                            disabled={isLoading}
+                        >
+                            Add tool
+                        </button>
+                    </form>
+                    <Dialog.Close asChild>
+                        <button
+                            className='modal__close-button'
+                            aria-label='Close button'
+                        >
+                            <img src={Add} alt='' />
+                        </button>
+                    </Dialog.Close>
+                </Dialog.Content>
+            </Dialog.Portal>
+        </Dialog.Root>
     )
 }
