@@ -33,9 +33,7 @@ export function Actions() {
                 <img src={Add} alt='' />
             </button>
 
-            {isOpen && (
-                <NewToolModal isOpen={isOpen} toggleOpenModal={toggleOpenModal} />
-            )}
+            <NewToolModal isOpen={isOpen} toggleOpenModal={toggleOpenModal} />
         </aside>
     )
 }
