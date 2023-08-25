@@ -7,7 +7,7 @@
     "dev": "concurrently \"vite\" \"npm run server\"",
     "server": "json-server --watch db.json --port 3004",
     "test": "jest",
-    "test-cover": "jest --collectCoverage --collectCoverageFrom=\"./src/**/*.tsx\" --coverageDirectory=\"coverage\"",
+    "test-cover": "jest --collectCoverage --collectCoverageFrom=\"./src/**/*.{ts,tsx}\" --coverageDirectory=\"coverage\"",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
