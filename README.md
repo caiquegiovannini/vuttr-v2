@@ -28,6 +28,8 @@
   </p>
 </div>
 
+<br />
+
 ## 📝 About The Project
 
 Are you tired of missing an awesome tool that you found on the web because you didn't write it down? Your problems are over! The Very Useful Tools To Remember app (or simply VUTTR) came to to make your life easier by providing a simple but efficient way to keep your favorite tools organized and always at hand.
@@ -89,7 +91,7 @@ Execute the command
 npm test-cover
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br />
 
 ## 🤝 Contributing
 
@@ -105,6 +107,12 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## License
+
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+
+<br />
 
 ---
 
