@@ -11,7 +11,8 @@
 
 <br />
 <div align="center">
-  <h2>VUTTR</h2>
+
+  <h1>VUTTR</h1>
 
   <h3 align="center">Very Useful Tools To Remember</h3>
 
@@ -104,6 +105,8 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
 
 Made with 💙 by [Caique Giovannini](https://www.linkedin.com/in/caique-giovannini/)
 
