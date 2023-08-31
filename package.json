@@ -1,8 +1,9 @@
 {
   "name": "vuttr-vite",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
   "type": "module",
+  "author": "Caique Giovannini",
   "scripts": {
     "dev": "concurrently \"vite\" \"npm run server\"",
     "server": "json-server --watch db.json --port 3004",
