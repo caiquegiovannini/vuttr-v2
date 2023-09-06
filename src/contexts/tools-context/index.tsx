@@ -5,7 +5,6 @@ import { ToolPayload } from '../../api/types'
 
 interface ToolsContextType {
     toolsToRender: Tool[]
-    filter: string
     isLoading: boolean
     fetchTools: () => Promise<void>
     addNewTool: (payload: ToolPayload) => Promise<void>
@@ -65,7 +64,6 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
     return (
         <ToolsContext.Provider value={{
             toolsToRender,
-            filter,
             isLoading,
             fetchTools,
             addNewTool,
