@@ -11,11 +11,11 @@ describe('Actions', () => {
     it('should open modal when add new button was clicked', async () => {
         render(<ToolsProvider><Actions /></ToolsProvider>)
 
-        expect(screen.queryByText('New tool modal')).not.toBeInTheDocument()
+        expect(screen.queryByRole('heading', { name: 'Add new tool' })).not.toBeInTheDocument()
 
         const addNewButton = screen.getByRole('button', { name: 'Add new tool' })
         await userEvent.click(addNewButton)
 
-        expect(screen.getByText('New tool modal')).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'Add new tool' })).toBeInTheDocument()
     })
 })
