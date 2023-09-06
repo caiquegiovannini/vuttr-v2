@@ -4,7 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import Add from '../../../../../assets/add.svg'
 import { ToolPayload } from '../../../../../api/types'
 import { ToolsContext } from '../../../../../contexts/tools-context'
-import { useAddNewTool } from '../../../../../hooks/use-add-new-tool'
+import { sanitizeString, formatToUrl, formatToArray } from '../../../../../utils/string-utils'
 import { Input } from '../../../../../components/input'
 import { Textarea } from '../../../../../components/textarea'
 import './styles.css'
@@ -17,8 +17,6 @@ interface NewToolModalProps {
 export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
     const { addNewTool, isLoading } = useContext(ToolsContext)
 
-    const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
-
     const [toolTitle, setToolTitle] = useState('')
     const [toolUrl, setToolUrl] = useState('')
     const [toolDescription, setToolDescription] = useState('')
@@ -28,10 +26,10 @@ export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
         e.preventDefault()
 
         const payload: ToolPayload = {
-            title: sanitizeValue(toolTitle),
-            url: formatToolUrl(toolUrl),
-            description: sanitizeValue(toolDescription),
-            tags: formatTags(toolTags),
+            title: sanitizeString(toolTitle),
+            url: formatToUrl(toolUrl),
+            description: sanitizeString(toolDescription),
+            tags: formatToArray(toolTags),
         }
 
         await addNewTool(payload)
