@@ -15,11 +15,11 @@ interface ToolsContextType {
 
 interface ToolsProviderProps {
     children: ReactNode
-  }
+}
 
 export const ToolsContext = createContext({} as ToolsContextType)
 
-export function ToolsProvider({children}: ToolsProviderProps) {
+export function ToolsProvider({ children }: ToolsProviderProps) {
     const [tools, setTools] = useState<Tool[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [filter, setFilter] = useState('')
