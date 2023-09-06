@@ -32,11 +32,11 @@
 
 ## 📝 About The Project
 
-Are you tired of missing an awesome tool that you found on the web because you didn't write it down? Your problems are over! The Very Useful Tools To Remember app (or simply VUTTR) came to to make your life easier by providing a simple but efficient way to keep your favorite tools organized and always at hand.
+Are you tired of missing an awesome tool that you found on the web because you didn't write it down? Your problems are over! The Very Useful Tools To Remember app (or simply VUTTR) came to make your life easier by providing a simple but efficient way to keep your favorite tools organized and always at hand.
 
 Here's how:
 * Add a short description and categorize the tools with tags
-* Find the a specific tool filtering by title or tag (the second will beavailable soon)
+* Find the a specific tool filtering by title or tag (the second will be available soon)
 
 
 ### Built With
@@ -50,7 +50,7 @@ Here's how:
 
 ## ▶ Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
