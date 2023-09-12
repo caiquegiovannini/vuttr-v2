@@ -1,13 +1,11 @@
 import { ReactNode, createContext, useCallback, useState } from 'react'
 import { Tool } from '../../types'
-import { addTool, getTools, removeTool } from '../../api/tools'
-import { ToolPayload } from '../../api/types'
+import { getTools, removeTool } from '../../api/tools'
 
 interface ToolsContextType {
     toolsToRender: Tool[]
-    isLoading: boolean
     fetchTools: () => Promise<void>
-    addNewTool: (payload: ToolPayload) => Promise<void>
+    updateTools: (newTool: Tool) => void
     handleRemoveTool: (id: string) => Promise<void>
     handleChangeFilter: (filterTerm: string) => void
 }
@@ -20,7 +18,6 @@ export const ToolsContext = createContext({} as ToolsContextType)
 
 export function ToolsProvider({ children }: ToolsProviderProps) {
     const [tools, setTools] = useState<Tool[]>([])
-    const [isLoading, setIsLoading] = useState(false)
     const [filter, setFilter] = useState('')
 
     const toolsToRender = filter ? tools.filter(tool => tool.title.toLowerCase().includes(filter)) : tools
@@ -34,17 +31,8 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
         }
     }, [])
 
-    const addNewTool = useCallback(async (payload: ToolPayload) => {
-        try {
-            setIsLoading(true)
-            const response = await addTool(payload)
-            setTools(currentTools => [...currentTools, response.data])
-        } catch (error) {
-            console.error(error)
-        } finally {
-            setIsLoading(false)
-        }
-
+    const updateTools = useCallback((newTool: Tool) => {
+        setTools(currentTools => [...currentTools, newTool])
     }, [])
 
     const handleRemoveTool = useCallback(async (id: string) => {
@@ -64,9 +52,8 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
     return (
         <ToolsContext.Provider value={{
             toolsToRender,
-            isLoading,
             fetchTools,
-            addNewTool,
+            updateTools,
             handleRemoveTool,
             handleChangeFilter,
         }}>

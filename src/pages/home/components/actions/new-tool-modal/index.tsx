@@ -1,10 +1,9 @@
-import { FormEvent, useContext, useState } from 'react'
+import { useContext } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../../../../assets/add.svg'
-import { ToolPayload } from '../../../../../api/types'
 import { ToolsContext } from '../../../../../contexts/tools-context'
-import { sanitizeString, formatToUrl, formatToArray } from '../../../../../utils/string-utils'
+import { useNewToolForm } from '../../../../../hooks/use-new-tool-form'
 import { Input } from '../../../../../components/input'
 import { Textarea } from '../../../../../components/textarea'
 import './styles.css'
@@ -15,34 +14,19 @@ interface NewToolModalProps {
 }
 
 export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
-    const { addNewTool, isLoading } = useContext(ToolsContext)
-
-    const [toolTitle, setToolTitle] = useState('')
-    const [toolUrl, setToolUrl] = useState('')
-    const [toolDescription, setToolDescription] = useState('')
-    const [toolTags, setToolTags] = useState('')
-
-    async function handleSubmit(e: FormEvent) {
-        e.preventDefault()
-
-        const payload: ToolPayload = {
-            title: sanitizeString(toolTitle),
-            url: formatToUrl(toolUrl),
-            description: sanitizeString(toolDescription),
-            tags: formatToArray(toolTags),
-        }
-
-        await addNewTool(payload)
-        toggleOpenModal()
-        cleanFields()
-    }
-
-    function cleanFields() {
-        setToolTitle('')
-        setToolUrl('')
-        setToolDescription('')
-        setToolTags('')
-    }
+    const { updateTools } = useContext(ToolsContext)
+    const {
+        toolTitle,
+        toolUrl,
+        toolDescription,
+        toolTags,
+        handleChangeTitle,
+        handleChangeUrl,
+        handleChangeDescription,
+        handleChangeTags,
+        isLoading,
+        handleSubmit,
+    } = useNewToolForm({ updateTools, toggleOpenModal })
 
     return (
         <Dialog.Root open={isOpen} onOpenChange={toggleOpenModal}>
@@ -57,25 +41,25 @@ export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
                             id='tool-title'
                             label='Tool title'
                             value={toolTitle}
-                            onChange={(e) => setToolTitle(e.target.value)}
+                            onChange={(e) => handleChangeTitle(e.target.value)}
                         />
                         <Input
                             id='tool-url'
                             label='Tool url' prefix='https://'
                             value={toolUrl}
-                            onChange={(e) => setToolUrl(e.target.value)}
+                            onChange={(e) => handleChangeUrl(e.target.value)}
                         />
                         <Textarea
                             id='tool-description'
                             label='Tool description'
                             value={toolDescription}
-                            onChange={(e) => setToolDescription(e.target.value)}
+                            onChange={(e) => handleChangeDescription(e.target.value)}
                         />
                         <Input
                             id='tool-tags'
                             label='Tags' placeholder='separate tags by space'
                             value={toolTags}
-                            onChange={(e) => setToolTags(e.target.value)}
+                            onChange={(e) => handleChangeTags(e.target.value)}
                         />
                         <button
                             type='submit'
