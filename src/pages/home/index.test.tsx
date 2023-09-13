@@ -120,17 +120,16 @@ describe('Home', () => {
         expect(screen.getAllByRole('article')).toHaveLength(expectedLength)
 
         const toolsList = screen.getByRole('main', { name: 'list of tools' })
-        expect(within(toolsList))
 
-        expectedToolsToRender.map(toolTitle => {
+        for (const toolTitle of expectedToolsToRender) {
             const toolTitleInList = within(toolsList).getByRole('heading', { name: toolTitle })
             expect(toolTitleInList).toBeInTheDocument()
-        })
+        }
 
-        expectedToolsNotToRender.map(toolTitle => {
+        for (const toolTitle of expectedToolsNotToRender) {
             const toolTitleInList = within(toolsList).queryByRole('heading', { name: toolTitle })
             expect(toolTitleInList).not.toBeInTheDocument()
-        })
+        }
     })
     it('should open modal when Add new button was clicked', async () => {
         mock.onGet('/tools').reply(200, toolsMock)
