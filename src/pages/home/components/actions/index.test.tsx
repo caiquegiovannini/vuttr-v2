@@ -3,10 +3,6 @@ import userEvent from '@testing-library/user-event'
 import { ToolsProvider } from '../../../../contexts/tools-context'
 import { Actions } from '.'
 
-jest.mock('./new-tool-modal', () => ({
-    NewToolModal: () => <div>New tool modal</div>,
-}))
-
 describe('Actions', () => {
     it('should open modal when add new button was clicked', async () => {
         render(<ToolsProvider><Actions /></ToolsProvider>)
