@@ -20,7 +20,7 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
     const [tools, setTools] = useState<Tool[]>([])
     const [filter, setFilter] = useState('')
 
-    const toolsToRender = filter ? tools.filter(tool => tool.title.toLowerCase().includes(filter)) : tools
+    const toolsToRender = filter ? tools.filter(tool => tool.title.match(new RegExp(filter.trim(), 'i'))) : tools
 
     const fetchTools = useCallback(async () => {
         try {
@@ -45,8 +45,7 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
     }, [])
 
     const handleChangeFilter = useCallback((filterTerm: string) => {
-        const filterTermFormatted = filterTerm.trim().toLocaleLowerCase()
-        setFilter(filterTermFormatted)
+        setFilter(filterTerm)
     }, [])
 
     return (
