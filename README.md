@@ -6,6 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/node-v18.15-339933?logo=nodedotjs)
 ![Static Badge](https://img.shields.io/badge/react-v18.2-61DAFB?logo=react)
 ![Static Badge](https://img.shields.io/badge/RTL-v14.0-E33332?logo=testinglibrary)
+![Static Badge](https://github.com/caiquegiovannini/vuttr-v2/actions/workflows/tests.yml/badge.svg)
 
 </div>
 
