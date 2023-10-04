@@ -5,7 +5,7 @@
 ![Static Badge](https://img.shields.io/badge/app-v2.0-blue)
 ![Static Badge](https://img.shields.io/badge/node-v18.15-339933?logo=nodedotjs)
 ![Static Badge](https://img.shields.io/badge/react-v18.2-61DAFB?logo=react)
-![Static Badge](https://img.shields.io/badge/react-v14.0-E33332?logo=testinglibrary)
+![Static Badge](https://img.shields.io/badge/RTL-v14.0-E33332?logo=testinglibrary)
 
 </div>
 
