@@ -89,7 +89,7 @@ npm test
 ### Running tests with coverage
 Execute the command
 ```sh
-npm test-cover
+npm run test-cover
 ```
 
 <br />
