@@ -2,7 +2,7 @@ import { FormEvent, useCallback, useState } from 'react'
 import { ToolPayload } from '../api/types'
 import { addTool } from '../api/tools'
 import { Tool } from '../types'
-import { formatToArray, formatToUrl, sanitizeString } from '../utils/string-utils'
+import { formatToArray, formatToUrl, cleanString } from '../utils/string-utils'
 
 interface UseNewToolFormProps {
     updateTools: (newTool: Tool) => void
@@ -49,9 +49,9 @@ function useNewToolForm({ updateTools, toggleOpenModal }: UseNewToolFormProps) {
         e.preventDefault()
 
         const payload: ToolPayload = {
-            title: sanitizeString(toolTitle),
+            title: cleanString(toolTitle),
             url: formatToUrl(toolUrl),
-            description: sanitizeString(toolDescription),
+            description: cleanString(toolDescription),
             tags: formatToArray(toolTags),
         }
 

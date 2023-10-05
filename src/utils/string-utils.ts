@@ -1,4 +1,4 @@
-function sanitizeString(value: string) {
+function cleanString(value: string) {
     return value.trim()
 }
 
@@ -7,13 +7,13 @@ function formatToUrl(url: string) {
 }
 
 function formatToArray(values: string) {
-    const valuesToArray = sanitizeString(values).split(' ')
+    const valuesToArray = cleanString(values).split(' ')
 
     return valuesToArray
 }
 
 export {
-    sanitizeString,
+    cleanString,
     formatToUrl,
     formatToArray,
 }
