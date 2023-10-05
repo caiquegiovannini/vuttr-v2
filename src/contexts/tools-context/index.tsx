@@ -5,9 +5,8 @@ import { ToolPayload } from '../../api/types'
 
 interface ToolsContextType {
     toolsToRender: Tool[]
-    filter: string
-    isLoading: boolean
     fetchTools: () => Promise<void>
+    updateTools: (newTool: Tool) => void
     addNewTool: (payload: ToolPayload) => Promise<void>
     handleRemoveTool: (id: string) => Promise<void>
     handleChangeFilter: (filterTerm: string) => void
@@ -21,10 +20,9 @@ export const ToolsContext = createContext({} as ToolsContextType)
 
 export function ToolsProvider({ children }: ToolsProviderProps) {
     const [tools, setTools] = useState<Tool[]>([])
-    const [isLoading, setIsLoading] = useState(false)
     const [filter, setFilter] = useState('')
 
-    const toolsToRender = filter ? tools.filter(tool => tool.title.toLowerCase().includes(filter)) : tools
+    const toolsToRender = filter ? tools.filter(tool => tool.title.match(new RegExp(filter.trim(), 'i'))) : tools
 
     const fetchTools = useCallback(async () => {
         try {
@@ -35,18 +33,18 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
         }
     }, [])
 
+    const updateTools = useCallback((newTool: Tool) => {
+        setTools(currentTools => [...currentTools, newTool])
+    }, [])
+
     const addNewTool = useCallback(async (payload: ToolPayload) => {
         try {
-            setIsLoading(true)
             const response = await addTool(payload)
-            setTools(currentTools => [...currentTools, response.data])
+            updateTools(response.data)
         } catch (error) {
             console.error(error)
-        } finally {
-            setIsLoading(false)
         }
-
-    }, [])
+    }, [updateTools])
 
     const handleRemoveTool = useCallback(async (id: string) => {
         try {
@@ -58,16 +56,14 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
     }, [])
 
     const handleChangeFilter = useCallback((filterTerm: string) => {
-        const filterTermFormatted = filterTerm.trim().toLocaleLowerCase()
-        setFilter(filterTermFormatted)
+        setFilter(filterTerm)
     }, [])
 
     return (
         <ToolsContext.Provider value={{
             toolsToRender,
-            filter,
-            isLoading,
             fetchTools,
+            updateTools,
             addNewTool,
             handleRemoveTool,
             handleChangeFilter,

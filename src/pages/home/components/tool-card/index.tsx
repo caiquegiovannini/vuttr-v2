@@ -10,12 +10,15 @@ export function ToolCard({ id, title, url, description, tags }: Tool) {
         <article className='tool-card' id={id} aria-labelledby={`tool-card-title-${id}`}>
             <header className='tool-card__header'>
                 <h3 id={`tool-card-title-${id}`}>
-                    <a
-                        href={url}
-                        target='_blank'
-                    >{title}</a>
+                    <a href={url} target='_blank'>
+                        {title}
+                    </a>
                 </h3>
-                <button className='tool-card__header__remove-button' onClick={() => handleRemoveTool(id)} aria-label="Remove tool">
+                <button
+                    className='tool-card__header__remove-button'
+                    onClick={() => handleRemoveTool(id)}
+                    aria-label="Remove tool"
+                >
                     <img src={TrashIcon} alt="trash can" />
                 </button>
             </header>

@@ -1,10 +1,7 @@
-import { FormEvent, useContext, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../../../../assets/add.svg'
-import { ToolPayload } from '../../../../../api/types'
-import { ToolsContext } from '../../../../../contexts/tools-context'
-import { useAddNewTool } from '../../../../../hooks/use-add-new-tool'
+import { useNewToolForm } from '../../../../../hooks/use-new-tool-form'
 import { Input } from '../../../../../components/input'
 import { Textarea } from '../../../../../components/textarea'
 import './styles.css'
@@ -15,36 +12,18 @@ interface NewToolModalProps {
 }
 
 export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
-    const { addNewTool, isLoading } = useContext(ToolsContext)
-
-    const { sanitizeValue, formatToolUrl, formatTags } = useAddNewTool()
-
-    const [toolTitle, setToolTitle] = useState('')
-    const [toolUrl, setToolUrl] = useState('')
-    const [toolDescription, setToolDescription] = useState('')
-    const [toolTags, setToolTags] = useState('')
-
-    async function handleSubmit(e: FormEvent) {
-        e.preventDefault()
-
-        const payload: ToolPayload = {
-            title: sanitizeValue(toolTitle),
-            url: formatToolUrl(toolUrl),
-            description: sanitizeValue(toolDescription),
-            tags: formatTags(toolTags),
-        }
-
-        await addNewTool(payload)
-        toggleOpenModal()
-        cleanFields()
-    }
-
-    function cleanFields() {
-        setToolTitle('')
-        setToolUrl('')
-        setToolDescription('')
-        setToolTags('')
-    }
+    const {
+        toolTitle,
+        toolUrl,
+        toolDescription,
+        toolTags,
+        handleChangeTitle,
+        handleChangeUrl,
+        handleChangeDescription,
+        handleChangeTags,
+        handleSubmit,
+        isLoading,
+    } = useNewToolForm({ toggleOpenModal })
 
     return (
         <Dialog.Root open={isOpen} onOpenChange={toggleOpenModal}>
@@ -59,30 +38,32 @@ export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
                             id='tool-title'
                             label='Tool title'
                             value={toolTitle}
-                            onChange={(e) => setToolTitle(e.target.value)}
+                            onChange={(e) => handleChangeTitle(e.target.value)}
                         />
                         <Input
                             id='tool-url'
-                            label='Tool url' prefix='https://'
+                            label='Tool url'
+                            prefix='https://'
                             value={toolUrl}
-                            onChange={(e) => setToolUrl(e.target.value)}
+                            onChange={(e) => handleChangeUrl(e.target.value)}
                         />
                         <Textarea
                             id='tool-description'
                             label='Tool description'
                             value={toolDescription}
-                            onChange={(e) => setToolDescription(e.target.value)}
+                            onChange={(e) => handleChangeDescription(e.target.value)}
                         />
                         <Input
                             id='tool-tags'
-                            label='Tags' placeholder='separate tags by space'
+                            label='Tags'
+                            placeholder='separate tags by space'
                             value={toolTags}
-                            onChange={(e) => setToolTags(e.target.value)}
+                            onChange={(e) => handleChangeTags(e.target.value)}
                         />
                         <button
                             type='submit'
                             className='modal__add-tool-button'
-                            disabled={isLoading}
+                            disabled={isLoading} //testar esse disabled
                         >
                             Add tool
                         </button>

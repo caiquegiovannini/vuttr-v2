@@ -96,6 +96,17 @@ describe('Home', () => {
                 'StackOverflow',
             ],
         },
+        {
+            filter: '  ch ',
+            expectedLength: 2,
+            expectedToolsToRender: [
+                'ChatOverflow',
+                'ChatGPT',
+            ],
+            expectedToolsNotToRender: [
+                'StackOverflow',
+            ],
+        },
     ])('should filter tools by title', async ({
         filter,
         expectedLength,
