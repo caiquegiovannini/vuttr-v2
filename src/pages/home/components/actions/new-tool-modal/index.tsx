@@ -45,7 +45,8 @@ export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
                         />
                         <Input
                             id='tool-url'
-                            label='Tool url' prefix='https://'
+                            label='Tool url'
+                            prefix='https://'
                             value={toolUrl}
                             onChange={(e) => handleChangeUrl(e.target.value)}
                         />
@@ -57,7 +58,8 @@ export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
                         />
                         <Input
                             id='tool-tags'
-                            label='Tags' placeholder='separate tags by space'
+                            label='Tags'
+                            placeholder='separate tags by space'
                             value={toolTags}
                             onChange={(e) => handleChangeTags(e.target.value)}
                         />
