@@ -42,7 +42,6 @@ function useNewToolForm({ updateTools, toggleOpenModal }: UseNewToolFormProps) {
         } finally {
             setIsLoading(false)
         }
-
     }, [updateTools])
 
     const handleSubmit = async (e: FormEvent) => {
