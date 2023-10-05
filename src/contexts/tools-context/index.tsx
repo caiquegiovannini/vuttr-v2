@@ -1,11 +1,13 @@
 import { ReactNode, createContext, useCallback, useState } from 'react'
 import { Tool } from '../../types'
-import { getTools, removeTool } from '../../api/tools'
+import { addTool, getTools, removeTool } from '../../api/tools'
+import { ToolPayload } from '../../api/types'
 
 interface ToolsContextType {
     toolsToRender: Tool[]
     fetchTools: () => Promise<void>
     updateTools: (newTool: Tool) => void
+    addNewTool: (payload: ToolPayload) => Promise<void>
     handleRemoveTool: (id: string) => Promise<void>
     handleChangeFilter: (filterTerm: string) => void
 }
@@ -35,6 +37,15 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
         setTools(currentTools => [...currentTools, newTool])
     }, [])
 
+    const addNewTool = useCallback(async (payload: ToolPayload) => {
+        try {
+            const response = await addTool(payload)
+            updateTools(response.data)
+        } catch (error) {
+            console.error(error)
+        }
+    }, [updateTools])
+
     const handleRemoveTool = useCallback(async (id: string) => {
         try {
             await removeTool(id)
@@ -53,6 +64,7 @@ export function ToolsProvider({ children }: ToolsProviderProps) {
             toolsToRender,
             fetchTools,
             updateTools,
+            addNewTool,
             handleRemoveTool,
             handleChangeFilter,
         }}>

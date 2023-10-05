@@ -1,20 +1,20 @@
-import { FormEvent, useCallback, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import { ToolPayload } from '../api/types'
-import { addTool } from '../api/tools'
-import { Tool } from '../types'
 import { formatToArray, formatToUrl, cleanString } from '../utils/string-utils'
+import { ToolsContext } from '../contexts/tools-context'
 
 interface UseNewToolFormProps {
-    updateTools: (newTool: Tool) => void
     toggleOpenModal: () => void
 }
 
-function useNewToolForm({ updateTools, toggleOpenModal }: UseNewToolFormProps) {
+function useNewToolForm({ toggleOpenModal }: UseNewToolFormProps) {
+    const { addNewTool } = useContext(ToolsContext)
     const [toolTitle, setToolTitle] = useState('')
     const [toolUrl, setToolUrl] = useState('')
     const [toolDescription, setToolDescription] = useState('')
     const [toolTags, setToolTags] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+
 
     function handleChangeTitle(title: string) {
         setToolTitle(title)
@@ -32,20 +32,9 @@ function useNewToolForm({ updateTools, toggleOpenModal }: UseNewToolFormProps) {
         setToolTags(tags)
     }
 
-    const addNewTool = useCallback(async (payload: ToolPayload) => {
-        try {
-            setIsLoading(true)
-            const response = await addTool(payload)
-            updateTools(response.data)
-        } catch (error) {
-            console.error(error)
-        } finally {
-            setIsLoading(false)
-        }
-    }, [updateTools])
-
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
+        setIsLoading(true)
 
         const payload: ToolPayload = {
             title: cleanString(toolTitle),
@@ -53,8 +42,8 @@ function useNewToolForm({ updateTools, toggleOpenModal }: UseNewToolFormProps) {
             description: cleanString(toolDescription),
             tags: formatToArray(toolTags),
         }
-
         await addNewTool(payload)
+        setIsLoading(false)
         toggleOpenModal()
         cleanFields()
     }
@@ -71,12 +60,12 @@ function useNewToolForm({ updateTools, toggleOpenModal }: UseNewToolFormProps) {
         toolUrl,
         toolDescription,
         toolTags,
-        isLoading,
         handleChangeTitle,
         handleChangeUrl,
         handleChangeDescription,
         handleChangeTags,
         handleSubmit,
+        isLoading,
     }
 }
 

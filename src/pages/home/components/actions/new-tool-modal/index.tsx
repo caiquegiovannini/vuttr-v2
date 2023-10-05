@@ -1,8 +1,6 @@
-import { useContext } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 
 import Add from '../../../../../assets/add.svg'
-import { ToolsContext } from '../../../../../contexts/tools-context'
 import { useNewToolForm } from '../../../../../hooks/use-new-tool-form'
 import { Input } from '../../../../../components/input'
 import { Textarea } from '../../../../../components/textarea'
@@ -14,7 +12,6 @@ interface NewToolModalProps {
 }
 
 export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
-    const { updateTools } = useContext(ToolsContext)
     const {
         toolTitle,
         toolUrl,
@@ -24,9 +21,9 @@ export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
         handleChangeUrl,
         handleChangeDescription,
         handleChangeTags,
-        isLoading,
         handleSubmit,
-    } = useNewToolForm({ updateTools, toggleOpenModal })
+        isLoading,
+    } = useNewToolForm({ toggleOpenModal })
 
     return (
         <Dialog.Root open={isOpen} onOpenChange={toggleOpenModal}>
@@ -66,7 +63,7 @@ export function NewToolModal({ toggleOpenModal, isOpen }: NewToolModalProps) {
                         <button
                             type='submit'
                             className='modal__add-tool-button'
-                            disabled={isLoading}
+                            disabled={isLoading} //testar esse disabled
                         >
                             Add tool
                         </button>
