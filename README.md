@@ -21,7 +21,7 @@
     Keep your best tools always in handy!
     <br />
     <br />
-    <span>View Demo</span>
+    <span>View Demo (soon)</span>
     ·
     <a href="https://github.com/caiquegiovannini/vuttr-v2/issues">Report Bug</a>
     ·
