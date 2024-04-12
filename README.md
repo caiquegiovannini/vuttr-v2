@@ -21,7 +21,7 @@
     Keep your best tools always in handy!
     <br />
     <br />
-    <span>View Demo (soon)</span>
+    <a href="https://vuttr-v2.vercel.app/" target="_blank">View Demo</a>
     ·
     <a href="https://github.com/caiquegiovannini/vuttr-v2/issues">Report Bug</a>
     ·
@@ -46,6 +46,7 @@ Here's how:
 * [![Vite][Vite.js]][Vite-url]
 * [![Typescript][Typescript.js]][Typescript-url]
 * [![RTL][RTL.js]][RTL-url]
+* [![Supabase][Supabase]][Supabase-url]
 
 <br />
 
@@ -132,3 +133,5 @@ Made with 💙 by [Caique Giovannini](https://www.linkedin.com/in/caique-giovann
 [Typescript-url]: https://www.typescriptlang.org/
 [RTL.js]: https://img.shields.io/badge/React_testing_library-20232A?style=for-the-badge&logo=testinglibrary&logoColor=#E33332
 [RTL-url]: https://testing-library.com/docs/react-testing-library/intro/
+[Supabase]: https://img.shields.io/badge/Supabase-20232A?style=for-the-badge&logo=supabase&logoColor=61DAFB
+[Supabase-url]: https://supabase.com/
