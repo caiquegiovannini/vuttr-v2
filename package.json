@@ -6,7 +6,7 @@
   "author": "Caique Giovannini",
   "scripts": {
     "dev": "concurrently \"vite\" \"npm run server\"",
-    "server": "json-server --watch db.json --port 3004",
+    "server": "nodemon --watch './**/*.ts' --exec 'ts-node-esm' ./server/index.ts",
     "test": "jest",
     "test-cover": "jest --collectCoverage --collectCoverageFrom=\"./src/**/*.{ts,tsx}\" --coverageDirectory=\"coverage\"",
     "build": "tsc && vite build",
