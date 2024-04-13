@@ -1,11 +1,10 @@
 import axios from 'axios'
+import dotenv from 'dotenv'
 
-console.log(import.meta.env)
+dotenv.config()
 
 export const api = axios.create({
-    baseURL: import.meta.env.MODE === 'development' ?
-        'http://localhost:3000/api/' :
-        '/api/',
+    baseURL: process.env.BASE_URL,
     headers: {
         'Content-Type': 'application/json',
     },
