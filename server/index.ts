@@ -12,7 +12,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/api/tools', async (_, res) => {
+app.get('/tools', async (_, res) => {
     const { data, error, status } = await supabase
         .from('Tools')
         .select('*')
@@ -29,7 +29,7 @@ app.get('/api/tools', async (_, res) => {
     res.json(data)
 })
 
-app.post('/api/tools', async (req, res) => {
+app.post('/tools', async (req, res) => {
     const { body } = req
     const { data, error, status } = await supabase
         .from('Tools')
@@ -50,7 +50,7 @@ app.post('/api/tools', async (req, res) => {
     res.json(data)
 })
 
-app.delete('/api/tools/:id', async (req, res) => {
+app.delete('/tools/:id', async (req, res) => {
     const { id } = req.params
 
     const { error, status } = await supabase
