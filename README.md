@@ -3,7 +3,7 @@
 <div align="center">
 
 ![Static Badge](https://img.shields.io/badge/app-v2.0-blue)
-![Static Badge](https://img.shields.io/badge/node-v18.15-339933?logo=nodedotjs)
+![Static Badge](https://img.shields.io/badge/node-v20.20-339933?logo=nodedotjs)
 ![Static Badge](https://img.shields.io/badge/react-v18.2-61DAFB?logo=react)
 ![Static Badge](https://img.shields.io/badge/RTL-v14.0-E33332?logo=testinglibrary)
 ![Static Badge](https://github.com/caiquegiovannini/vuttr-v2/actions/workflows/tests.yml/badge.svg)
@@ -56,7 +56,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* [node v18.15](https://nodejs.org/en)
+* [node v20.20](https://nodejs.org/en)
 
 ### Installation
 
